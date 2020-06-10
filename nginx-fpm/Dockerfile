@@ -37,7 +37,7 @@ USER nobody
 # Add application
 WORKDIR /var/www/html
 
-ENV NGINX_SERVERNAME 'luya-prod'
+ENV NGINX_SERVERNAME 'luya-nginx-prod'
 
 COPY config/env.php /var/www/html/configs/env.php
 
