@@ -3,10 +3,13 @@ FROM alpine:3.12
 # Install packages
 RUN apk --no-cache add php7 php7-fpm php7-mysqli php7-json php7-openssl php7-curl php7-pdo php7-zip php7-pdo_mysql \
     php7-zlib php7-xml php7-phar php7-intl php7-dom php7-xmlreader php7-ctype php7-session \
-    php7-mbstring php7-gd php7-pdo_sqlite nginx nginx-mod-http-lua supervisor
+    php7-mbstring php7-gd php7-pdo_sqlite nginx supervisor gettext
+
+ENV NGINX_SERVERNAME 'luya-nginx-prod'
 
 # Configure nginx
-COPY config/nginx.conf /etc/nginx/nginx.conf
+COPY config/nginx.conf /tmp/nginx.template
+RUN envsubst < /tmp/nginx.template > /etc/nginx/nginx.conf
 
 # Configure PHP-FPM
 COPY config/fpm-pool.conf /etc/php7/php-fpm.d/www.conf
@@ -37,7 +40,7 @@ USER nobody
 # Add application
 WORKDIR /var/www/html
 
-ENV NGINX_SERVERNAME 'luya-nginx-prod'
+
 
 COPY config/env.php /var/www/html/configs/env.php
 
