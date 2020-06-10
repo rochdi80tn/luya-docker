@@ -2,4 +2,10 @@
 
 LUYA Docker Images for Production Servers
 
-NGINX with FPM
+Example Project Dockerfile
+
+```
+FROM luyadev/luya-docker:nginx-fpm
+
+COPY --chown=nobody . /var/www/html/
+```
