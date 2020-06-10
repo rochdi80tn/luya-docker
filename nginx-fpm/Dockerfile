@@ -3,7 +3,7 @@ FROM alpine:3.12
 # Install packages
 RUN apk --no-cache add php7 php7-fpm php7-mysqli php7-json php7-openssl php7-curl php7-pdo php7-zip php7-pdo_mysql \
     php7-zlib php7-xml php7-phar php7-intl php7-dom php7-xmlreader php7-ctype php7-session \
-    php7-mbstring php7-gd php7-pdo_sqlite nginx supervisor curl nano
+    php7-mbstring php7-gd php7-pdo_sqlite nginx supervisor
 
 # Configure nginx
 COPY config/nginx.conf /etc/nginx/nginx.conf
@@ -37,7 +37,7 @@ USER nobody
 # Add application
 WORKDIR /var/www/html
 COPY --chown=nobody . /var/www/html/
-COPY configs/env.php.dist /var/www/html/configs/env.php
+COPY config/env.php /var/www/html/configs/env.php
 
 # Expose the port nginx is reachable on
 EXPOSE 8080
