@@ -10,7 +10,7 @@ FROM luyadev/luya-docker:nginx-fpm
 COPY --chown=nobody . /var/www/html/
 ```
 
-In order to change the NGINX Server Name currently only have this solution
+In order to change the NGINX Server Name currently there is only an override solution:
 
 ```
 USER root
