@@ -9,7 +9,7 @@ ENV NGINX_SERVERNAME=LUYAPROD
 
 # Configure nginx
 COPY config/nginx.conf /tmp/nginx.template
-RUN envsubst < /tmp/nginx.template > /etc/nginx/nginx.conf
+RUN envsubst '${NGINX_SERVERNAME}' < /tmp/nginx.template > /etc/nginx/nginx.conf
 
 # Configure PHP-FPM
 COPY config/fpm-pool.conf /etc/php7/php-fpm.d/www.conf
