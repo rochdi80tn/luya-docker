@@ -1,4 +1,4 @@
-ARG NGINX_SERVERNAME
+ARG NGINX_SERVERNAME=LUYAPROD
 FROM alpine:3.12
 
 # Install packages
@@ -8,6 +8,7 @@ RUN apk --no-cache add php7 php7-fpm php7-mysqli php7-json php7-openssl php7-cur
 
 # Configure nginx
 COPY config/nginx.conf /tmp/nginx.template
+ENV NGINX_SERVERNAME=$NGINX_SERVERNAME
 RUN envsubst '${NGINX_SERVERNAME}' < /tmp/nginx.template > /etc/nginx/nginx.conf
 
 # Configure PHP-FPM
