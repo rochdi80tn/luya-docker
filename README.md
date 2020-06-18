@@ -19,6 +19,12 @@ RUN envsubst '${NGINX_SERVERNAME}' < /tmp/nginx.template > /etc/nginx/nginx.conf
 USER nobody
 ```
 
+## ENV
+
+|Variable|Values|Descrption|
+|--------|------|----------|
+|`LUYA_CONFIG_ENV`|`prod`|The enviroment which should be taken, this must be assigned on runtime and is required in env.php
+
 ## Docker Build Testing
 
 1. Build the image `docker build -t testimage .`
