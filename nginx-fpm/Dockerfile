@@ -44,7 +44,7 @@ WORKDIR /var/www/html
 COPY config/env.php /var/www/html/configs/env.php
 
 # Expose the port nginx is reachable on
-EXPOSE 80 8080
+EXPOSE 8080
 
 # Let supervisord start nginx & php-fpm
 CMD ["/usr/bin/supervisord", "-c", "/etc/supervisor/conf.d/supervisord.conf"]
