@@ -8,7 +8,11 @@ RUN apt-get install -y php php-fpm php-mysqli php-json php-curl \
     php-mbstring php-gd php-zip
 RUN apt-get install -y nginx supervisor curl nano
 
-COPY nginx.conf /etc/nginx/nginx.conf
+# Configure nginx
+COPY config/nginx.conf /tmp/nginx.template
+ENV NGINX_SERVERNAME="LUYAPROD"
+RUN envsubst '${NGINX_SERVERNAME}' < /tmp/nginx.template > /etc/nginx/nginx.conf
+
 COPY fpm-pool.conf /etc/php/7.4/fpm/pool.d/www.conf
 COPY php.ini /etc/php/7.4/fpm/conf.d/zzz_custom.ini
 
