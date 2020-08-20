@@ -19,6 +19,15 @@ RUN envsubst '${NGINX_SERVERNAME}' < /tmp/nginx.template > /etc/nginx/nginx.conf
 USER nobody
 ```
 
+## Docker Compose
+
+```
+luyay_web:
+    image: luyadev/luya-docker:nginx-fpm
+    volumes:
+      - ./:/var/www/html
+```
+
 ## ENV
 
 |Variable|Values|Descrption|
