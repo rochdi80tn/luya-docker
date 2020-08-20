@@ -39,8 +39,6 @@ USER nobody
 # Add application
 WORKDIR /var/www/html
 
-
-
 COPY config/env.php /var/www/html/configs/env.php
 
 # Expose the port nginx is reachable on

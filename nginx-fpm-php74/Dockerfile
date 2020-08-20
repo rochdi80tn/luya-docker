@@ -13,21 +13,23 @@ COPY config/nginx.conf /tmp/nginx.template
 ENV NGINX_SERVERNAME="LUYAPROD"
 RUN envsubst '${NGINX_SERVERNAME}' < /tmp/nginx.template > /etc/nginx/nginx.conf
 
-COPY fpm-pool.conf /etc/php/7.4/fpm/pool.d/www.conf
-COPY php.ini /etc/php/7.4/fpm/conf.d/zzz_custom.ini
+COPY config/fpm-pool.conf /etc/php/7.4/fpm/pool.d/www.conf
+COPY config/php.ini /etc/php/7.4/fpm/conf.d/zzz_custom.ini
 
-COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+COPY config/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
 COPY ./luya.sh /usr/local/bin/luya
 COPY ./setup.sh /usr/local/bin/setup
 
 RUN chmod +x /usr/local/bin/luya
-RUN chmod +x /usr/local/bin/setup
+RUN chmod +x /usr/local/bin/setup 
 
 RUN mkdir -p /app
 RUN mkdir -p /app/public_html/
 
 WORKDIR /app
+
+COPY config/env.php /app/configs/env.php
 
 RUN mkdir -p /var/run/php
 
