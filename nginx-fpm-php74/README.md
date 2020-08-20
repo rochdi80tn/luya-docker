@@ -1,6 +1,4 @@
-# NINX with php fpm
-
-Nginx with PHP 7.4 FPM on Port 80
+# Nginx with PHP 7.4 FPM on Port 80
 
 ## docker builds
 
