@@ -6,7 +6,14 @@ Example Project Dockerfile
 
 ```
 FROM luyadev/luya-docker:nginx-fpm-php74
+
 COPY . /app
+
+RUN mkdir -p /app/public_html/assets
+RUN mkdir -p /app/runtime
+
+RUN chmod 777 /app/public_html/assets
+RUN chmod 777 /app/runtime
 ```
 
 In order to change the NGINX Server Name currently there is only an override solution:

@@ -29,6 +29,7 @@ RUN chmod +x /usr/local/bin/setup
 
 RUN mkdir -p /app
 RUN mkdir -p /app/public_html
+
 RUN mkdir -p /app/public_html/assets
 RUN mkdir -p /app/runtime
 
