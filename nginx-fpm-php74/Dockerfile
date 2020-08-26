@@ -5,8 +5,11 @@ RUN apt-get update
 
 RUN apt-get install -y php php-fpm php-mysqli php-json php-curl \
     php-xml php-intl php-dom \
-    php-mbstring php-gd php-zip
-RUN apt-get install -y nginx supervisor curl nano gettext-base
+    php-mbstring php-gd php-zip \
+    nginx supervisor gettext-base
+
+RUN apt-get clean autoclean
+RUN apt-get autoremove --yes
 
 # Configure nginx
 COPY config/nginx.conf /tmp/nginx.template
