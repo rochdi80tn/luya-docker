@@ -21,6 +21,8 @@ COPY config/php.ini /etc/php/7.4/fpm/conf.d/zzz_custom.ini
 
 COPY config/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
+USER www-data:www-data
+
 COPY ./luya.sh /usr/local/bin/luya
 COPY ./setup.sh /usr/local/bin/setup
 
