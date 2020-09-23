@@ -12,7 +12,7 @@ CMD []
 
 # Disable frontend dialogs
 ENV DEBIAN_FRONTEND noninteractive
-ENV PHP_VERSION 7.2
+ENV PHP_VERSION 7.4
 # Add ppa, curl and syslogd
 RUN apt-get update && apt-get install -y software-properties-common curl inetutils-syslogd && \
     apt-add-repository ppa:nginx/stable -y && \
@@ -58,7 +58,7 @@ RUN chmod 755 /etc/services.d/php_fpm/run
 ##############################
 ## ADDED ....
 ##############################
-EXPOSE 80
+#EXPOSE 80
 
 COPY ./luya.sh /usr/local/bin/luya
 COPY ./setup.sh /usr/local/bin/setup
