@@ -7,6 +7,8 @@ COPY docker/php.ini $PHP_INI_DIR/conf.d/my-app.ini
 
 COPY . /var/www/localhost/htdocs
 
+COPY docker/env.php /var/www/localhost/htdocs/configs/env.php
+
 RUN mkdir -p /var/www/localhost/htdocs/public_html/assets
 RUN mkdir -p /var/www/localhost/htdocs/runtime
 
