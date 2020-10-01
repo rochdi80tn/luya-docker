@@ -42,7 +42,7 @@ COPY config/env.php /app/configs/env.php
 
 RUN mkdir -p /var/run/php
 
-USER www-data:www-data
+#USER www-data:www-data
 
 EXPOSE 80
 
