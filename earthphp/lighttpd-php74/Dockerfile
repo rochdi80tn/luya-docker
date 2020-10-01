@@ -1,5 +1,7 @@
 FROM phpearth/php:7.4-lighttpd
 
+ENV LUYA_CONFIG_ENV prod
+
 RUN apk add --no-cache php7.4-intl php7.4-pdo_mysql php7.4-gd
 
 COPY docker/example.conf /etc/lighttpd/example.conf

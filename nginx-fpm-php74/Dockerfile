@@ -21,13 +21,13 @@ COPY config/php.ini /etc/php/7.4/fpm/conf.d/zzz_custom.ini
 
 COPY config/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
-USER www-data:www-data
-
 COPY ./luya.sh /usr/local/bin/luya
 COPY ./setup.sh /usr/local/bin/setup
 
 RUN chmod +x /usr/local/bin/luya
 RUN chmod +x /usr/local/bin/setup 
+
+USER www-data:www-data
 
 RUN mkdir -p /app
 RUN mkdir -p /app/public_html
