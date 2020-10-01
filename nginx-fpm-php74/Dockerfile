@@ -27,8 +27,6 @@ COPY ./setup.sh /usr/local/bin/setup
 RUN chmod +x /usr/local/bin/luya
 RUN chmod +x /usr/local/bin/setup 
 
-USER www-data:www-data
-
 RUN mkdir -p /app
 RUN mkdir -p /app/public_html
 
@@ -43,6 +41,8 @@ WORKDIR /app
 COPY config/env.php /app/configs/env.php
 
 RUN mkdir -p /var/run/php
+
+USER www-data:www-data
 
 EXPOSE 80
 
