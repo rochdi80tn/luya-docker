@@ -3,7 +3,7 @@ ENV TZ=Europe/Berlin
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 RUN apt-get update
 
-RUN apt-get install -y php php-fpm php-mysqli php-json php-curl \
+RUN apt-get install -y php php-fpm php-mysqli php-json php-curl php-memcached \
     php-xml php-intl php-dom \
     php-mbstring php-gd php-zip \
     nginx supervisor gettext-base
