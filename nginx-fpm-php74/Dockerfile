@@ -1,8 +1,7 @@
 FROM ubuntu:20.04
 ENV TZ=Europe/Berlin
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
-RUN apt-get update
-
+RUN apt-get -y update
 RUN apt-get install -y php php-fpm php-mysqli php-pgsql php-json php-curl php-memcached \
     php-xml php-intl php-dom \
     php-mbstring php-gd php-zip \
