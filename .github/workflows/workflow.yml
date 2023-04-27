@@ -14,6 +14,7 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
       - name: Build the php82 Docker image
         run: |
-          docker build . --tag ghcr.io/luya/nginx-fpm-php82:latest -f nginx-fpm-php82/Dockerfile
+          cd nginx-fpm-php82/
+          docker build . --tag ghcr.io/luya/nginx-fpm-php82:latest
           docker run ghcr.io/luya/nginx-fpm-php82:latest
           docker push ghcr.io/luya/nginx-fpm-php82:latest
