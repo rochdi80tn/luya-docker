@@ -1,11 +1,13 @@
 FROM ubuntu:22.04
-ENV TZ=Europe/Berlin
+ENV TZ=Africa/Tunis
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 RUN apt-get -y update --fix-missing && apt-get -y upgrade
 RUN apt install software-properties-common ca-certificates lsb-release apt-transport-https -y
 RUN LC_ALL=C.UTF-8 add-apt-repository ppa:ondrej/php 
 RUN apt-get update -y
-RUN apt-get install -y php8.2 \
+
+RUN apt-get install -y php8.2-fpm  php8.2-mysql php8.2-curl php8.2-memcached \
+    php8.2-dom  php8.2-intl  php8.2-xml  php8.2-mbstring php8.2-gd php8.2-zip \
     nginx supervisor gettext-base \
     curl
 
