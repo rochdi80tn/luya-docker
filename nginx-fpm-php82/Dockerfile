@@ -3,7 +3,7 @@ ENV TZ=Africa/Tunis
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 RUN apt-get -y update --fix-missing && apt-get -y upgrade
 RUN apt install software-properties-common ca-certificates lsb-release apt-transport-https -y
-RUN LC_ALL=C.UTF-8 add-apt-repository ppa:ondrej/php 
+RUN LC_ALL=C.UTF-8 add-apt-repository ppa:ondrej/php
 RUN apt-get update -y
 
 RUN apt-get install -y php8.2-fpm  php8.2-mysql php8.2-curl php8.2-memcached \
@@ -28,7 +28,7 @@ COPY ./luya.sh /usr/local/bin/luya
 COPY ./setup.sh /usr/local/bin/setup
 
 RUN chmod +x /usr/local/bin/luya
-RUN chmod +x /usr/local/bin/setup 
+RUN chmod +x /usr/local/bin/setup
 
 RUN mkdir -p /app
 RUN mkdir -p /app/public_html
