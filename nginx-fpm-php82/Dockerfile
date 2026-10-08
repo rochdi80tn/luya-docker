@@ -10,6 +10,8 @@ RUN apt-get install -y php8.2-fpm  php8.2-mysql php8.2-curl php8.2-memcached \
     php8.2-dom  php8.2-intl  php8.2-xml  php8.2-mbstring php8.2-gd php8.2-zip \
     nginx supervisor gettext-base \
     curl
+# pdftotext: GERA Compta reads the bank statements' PDFs (BankStatements)
+RUN apt-get update -y && apt-get install -y --no-install-recommends poppler-utils
 # RUN apt-get install -y php8.2-ldap
 RUN apt-get clean autoclean
 RUN apt-get autoremove --yes
