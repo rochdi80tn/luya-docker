@@ -12,6 +12,8 @@ RUN apt-get install -y php8.2-fpm  php8.2-mysql php8.2-curl php8.2-memcached \
     curl
 # pdftotext: GERA Compta reads the bank statements' PDFs (BankStatements)
 RUN apt-get update -y && apt-get install -y --no-install-recommends poppler-utils
+# OCR for documents saved as pictures (an OAT contract « printed to PDF », a phone photo): Rim Office reads them on the server, nothing sent out
+RUN apt-get update -y && apt-get install -y --no-install-recommends tesseract-ocr tesseract-ocr-fra
 # RUN apt-get install -y php8.2-ldap
 RUN apt-get clean autoclean
 RUN apt-get autoremove --yes
